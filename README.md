@@ -18,7 +18,7 @@ The following **required** functionality is completed:
  
 The following **optional** features are implemented:
 
-- [ ] User can launch camera to snap a picture	
+- [X] User can launch camera to snap a picture	
 
 The following **additional** features are implemented:
 
