@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23068.1"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -75,6 +76,7 @@
                                         <connections>
                                             <outlet property="completedImageView" destination="e79-gC-84j" id="X4g-L6-fDd"/>
                                             <outlet property="titleLabel" destination="AW2-bt-X1H" id="skK-Fo-SNI"/>
+                                            <segue destination="sa4-Fx-ENB" kind="show" identifier="DetailSegue" id="z3f-WY-tfh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -108,6 +110,107 @@
                 <navigationItem title="Photo Scavenger Hunt" id="b7V-bd-2JI"/>
             </objects>
             <point key="canvasLocation" x="624" y="-259"/>
+        </scene>
+        <!--Task Detail View Controller-->
+        <scene sceneID="tdF-3l-0L2">
+            <objects>
+                <viewController title="Task Detail View Controller" id="sa4-Fx-ENB" customClass="TaskDetailViewController" customModule="iOS102Unit1ScavengerHunt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eOY-us-gXM">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fC7-vV-ZqE" userLabel="Completed Status Stack View">
+                                <rect key="frame" x="23.999999999999993" y="249.66666666666666" width="98.333333333333314" height="20.333333333333343"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.inset.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="031-gz-Q9a">
+                                        <rect key="frame" x="0.0" y="0.6666666666666643" width="19.333333333333332" height="19.333333333333332"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" weight="light">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        </preferredSymbolConfiguration>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5a-le-UNV">
+                                        <rect key="frame" x="24.333333333333336" y="0.0" width="74" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Wl-hB-P0N">
+                                <rect key="frame" x="24" y="294" width="345" height="500"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0zO-fp-GTp">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite store and favorite snack" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC3-qj-ftb" userLabel="Title Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="uRY-TX-KiX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure to get the Xtra Hot variety in either the large or medium large bag." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awN-vf-l1r" userLabel="Description Label">
+                                                <rect key="frame" x="0.0" y="50" width="345" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="m4o-S4-7vS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cTp-dE-cRu">
+                                        <rect key="frame" x="0.0" y="100" width="345" height="400"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eR2-x8-bUR">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="ina-PN-pL6"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Attach Photo"/>
+                                            </button>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAW-iA-yRw">
+                                                <rect key="frame" x="0.0" y="100" width="345" height="300"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="300" id="2S9-S3-R5K"/>
+                                                </constraints>
+                                                <standardMapConfiguration key="preferredConfiguration"/>
+                                            </mapView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wQt-70-Bri"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wQt-70-Bri" firstAttribute="trailing" secondItem="3Wl-hB-P0N" secondAttribute="trailing" constant="24" id="09I-nZ-xlS"/>
+                            <constraint firstItem="wQt-70-Bri" firstAttribute="bottom" secondItem="3Wl-hB-P0N" secondAttribute="bottom" constant="24" id="1XO-nH-Kd7"/>
+                            <constraint firstItem="wQt-70-Bri" firstAttribute="bottom" secondItem="3Wl-hB-P0N" secondAttribute="bottom" constant="24" id="Cjl-7J-l9P"/>
+                            <constraint firstItem="fC7-vV-ZqE" firstAttribute="leading" secondItem="3Wl-hB-P0N" secondAttribute="leading" id="QdD-Ee-VgR"/>
+                            <constraint firstItem="fC7-vV-ZqE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wQt-70-Bri" secondAttribute="top" constant="24" id="Qpl-oP-Ers"/>
+                            <constraint firstItem="3Wl-hB-P0N" firstAttribute="leading" secondItem="wQt-70-Bri" secondAttribute="leading" constant="24" id="XSn-7L-ZpH"/>
+                            <constraint firstItem="fC7-vV-ZqE" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="3Wl-hB-P0N" secondAttribute="trailing" id="bo9-Vu-O8a"/>
+                            <constraint firstItem="3Wl-hB-P0N" firstAttribute="top" secondItem="fC7-vV-ZqE" secondAttribute="bottom" constant="24" id="hDE-QH-RzP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sWu-rF-0eJ"/>
+                    <connections>
+                        <outlet property="attachPhotoButton" destination="eR2-x8-bUR" id="FIv-p7-yGe"/>
+                        <outlet property="completedImageView" destination="031-gz-Q9a" id="tP9-2B-vbH"/>
+                        <outlet property="completedLabel" destination="z5a-le-UNV" id="LkI-6f-v7U"/>
+                        <outlet property="descriptionLabel" destination="awN-vf-l1r" id="DPy-UG-hdF"/>
+                        <outlet property="mapView" destination="kAW-iA-yRw" id="cdL-9n-7fa"/>
+                        <outlet property="titleLabel" destination="FC3-qj-ftb" id="OBJ-A1-egA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4aw-hQ-qgo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1462" y="-259"/>
         </scene>
     </scenes>
     <resources>

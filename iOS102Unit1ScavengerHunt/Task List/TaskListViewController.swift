@@ -38,6 +38,23 @@ class TaskListViewController: UIViewController {
         // This will reload data in order to reflect any changes made to a task after returning from the detail screen.
         tableView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+      if segue.identifier == "DetailSegue" {
+            if let detailViewController = segue.destination as? TaskDetailViewController,
+                // Get the index path for the current selected table view row.
+               let selectedIndexPath = tableView.indexPathForSelectedRow {
+
+                // Get the task associated with the slected index path
+                let task = tasks[selectedIndexPath.row]
+
+                // Set the selected task on the detail view controller.
+                detailViewController.task = task
+            }
+        }
+    }
+
 }
 
 

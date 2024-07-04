@@ -16,6 +16,8 @@
 		EE3484162C361C5E007CB97A /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3484152C361C5E007CB97A /* TaskListViewController.swift */; };
 		EE3484182C361CD5007CB97A /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3484172C361CD5007CB97A /* TaskCell.swift */; };
 		EE34841A2C361CFF007CB97A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3484192C361CFF007CB97A /* Task.swift */; };
+		EE34841F2C36359F007CB97A /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34841E2C36359F007CB97A /* TaskDetailViewController.swift */; };
+		EE3484212C366291007CB97A /* TaskAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3484202C366291007CB97A /* TaskAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		EE3484152C361C5E007CB97A /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		EE3484172C361CD5007CB97A /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		EE3484192C361CFF007CB97A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		EE34841E2C36359F007CB97A /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
+		EE3484202C366291007CB97A /* TaskAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 				EE3484032C3617FD007CB97A /* SceneDelegate.swift */,
 				EE3484052C3617FD007CB97A /* ViewController.swift */,
 				EE3484072C3617FD007CB97A /* Main.storyboard */,
+				EE34841D2C36357A007CB97A /* Task Detail */,
 				EE34841B2C3620A7007CB97A /* Task List */,
 				EE34841C2C3620D3007CB97A /* Model */,
 				EE34840A2C3617FE007CB97A /* Assets.xcassets */,
@@ -90,6 +95,15 @@
 				EE3484192C361CFF007CB97A /* Task.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EE34841D2C36357A007CB97A /* Task Detail */ = {
+			isa = PBXGroup;
+			children = (
+				EE34841E2C36359F007CB97A /* TaskDetailViewController.swift */,
+				EE3484202C366291007CB97A /* TaskAnnotationView.swift */,
+			);
+			path = "Task Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,9 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE34841F2C36359F007CB97A /* TaskDetailViewController.swift in Sources */,
 				EE3484062C3617FD007CB97A /* ViewController.swift in Sources */,
 				EE3484162C361C5E007CB97A /* TaskListViewController.swift in Sources */,
 				EE3484022C3617FD007CB97A /* AppDelegate.swift in Sources */,
+				EE3484212C366291007CB97A /* TaskAnnotationView.swift in Sources */,
 				EE3484042C3617FD007CB97A /* SceneDelegate.swift in Sources */,
 				EE34841A2C361CFF007CB97A /* Task.swift in Sources */,
 				EE3484182C361CD5007CB97A /* TaskCell.swift in Sources */,
