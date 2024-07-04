@@ -120,7 +120,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fC7-vV-ZqE" userLabel="Completed Status Stack View">
-                                <rect key="frame" x="23.999999999999993" y="249.66666666666666" width="98.333333333333314" height="20.333333333333343"/>
+                                <rect key="frame" x="23.999999999999993" y="549.66666666666663" width="98.333333333333314" height="20.333333333333371"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.inset.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="031-gz-Q9a">
                                         <rect key="frame" x="0.0" y="0.6666666666666643" width="19.333333333333332" height="19.333333333333332"/>
@@ -137,7 +137,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Wl-hB-P0N">
-                                <rect key="frame" x="24" y="294" width="345" height="500"/>
+                                <rect key="frame" x="24" y="594" width="345" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0zO-fp-GTp">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="100"/>
@@ -163,7 +163,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cTp-dE-cRu">
-                                        <rect key="frame" x="0.0" y="100" width="345" height="400"/>
+                                        <rect key="frame" x="0.0" y="100" width="345" height="100"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eR2-x8-bUR">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="100"/>
@@ -172,30 +172,34 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Attach Photo"/>
+                                                <connections>
+                                                    <action selector="didTapAttachPhotoButton:" destination="sa4-Fx-ENB" eventType="touchUpInside" id="SCx-mQ-nJb"/>
+                                                </connections>
                                             </button>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAW-iA-yRw">
-                                                <rect key="frame" x="0.0" y="100" width="345" height="300"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="300" id="2S9-S3-R5K"/>
-                                                </constraints>
-                                                <standardMapConfiguration key="preferredConfiguration"/>
-                                            </mapView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAW-iA-yRw">
+                                <rect key="frame" x="24" y="215.00000000000003" width="345" height="308.66666666666674"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wQt-70-Bri"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wQt-70-Bri" firstAttribute="trailing" secondItem="3Wl-hB-P0N" secondAttribute="trailing" constant="24" id="09I-nZ-xlS"/>
                             <constraint firstItem="wQt-70-Bri" firstAttribute="bottom" secondItem="3Wl-hB-P0N" secondAttribute="bottom" constant="24" id="1XO-nH-Kd7"/>
+                            <constraint firstItem="wQt-70-Bri" firstAttribute="leading" secondItem="kAW-iA-yRw" secondAttribute="leading" constant="-24" id="A8Y-lX-zYk"/>
                             <constraint firstItem="wQt-70-Bri" firstAttribute="bottom" secondItem="3Wl-hB-P0N" secondAttribute="bottom" constant="24" id="Cjl-7J-l9P"/>
                             <constraint firstItem="fC7-vV-ZqE" firstAttribute="leading" secondItem="3Wl-hB-P0N" secondAttribute="leading" id="QdD-Ee-VgR"/>
-                            <constraint firstItem="fC7-vV-ZqE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wQt-70-Bri" secondAttribute="top" constant="24" id="Qpl-oP-Ers"/>
                             <constraint firstItem="3Wl-hB-P0N" firstAttribute="leading" secondItem="wQt-70-Bri" secondAttribute="leading" constant="24" id="XSn-7L-ZpH"/>
                             <constraint firstItem="fC7-vV-ZqE" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="3Wl-hB-P0N" secondAttribute="trailing" id="bo9-Vu-O8a"/>
+                            <constraint firstItem="fC7-vV-ZqE" firstAttribute="leading" secondItem="wQt-70-Bri" secondAttribute="leading" constant="23.999999999999993" id="eS1-vL-xYP"/>
                             <constraint firstItem="3Wl-hB-P0N" firstAttribute="top" secondItem="fC7-vV-ZqE" secondAttribute="bottom" constant="24" id="hDE-QH-RzP"/>
+                            <constraint firstItem="wQt-70-Bri" firstAttribute="trailing" secondItem="kAW-iA-yRw" secondAttribute="trailing" constant="24" id="l3b-qu-Hj9"/>
+                            <constraint firstItem="fC7-vV-ZqE" firstAttribute="top" secondItem="kAW-iA-yRw" secondAttribute="bottom" constant="26" id="wcr-zb-TWd"/>
+                            <constraint firstItem="kAW-iA-yRw" firstAttribute="top" secondItem="wQt-70-Bri" secondAttribute="top" constant="60" id="z2J-cM-PLf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sWu-rF-0eJ"/>
