@@ -13,6 +13,9 @@
 		EE3484092C3617FD007CB97A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EE3484082C3617FD007CB97A /* Base */; };
 		EE34840B2C3617FE007CB97A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE34840A2C3617FE007CB97A /* Assets.xcassets */; };
 		EE34840E2C3617FE007CB97A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EE34840D2C3617FE007CB97A /* Base */; };
+		EE3484162C361C5E007CB97A /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3484152C361C5E007CB97A /* TaskListViewController.swift */; };
+		EE3484182C361CD5007CB97A /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3484172C361CD5007CB97A /* TaskCell.swift */; };
+		EE34841A2C361CFF007CB97A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3484192C361CFF007CB97A /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		EE34840A2C3617FE007CB97A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE34840D2C3617FE007CB97A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE34840F2C3617FE007CB97A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE3484152C361C5E007CB97A /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		EE3484172C361CD5007CB97A /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		EE3484192C361CFF007CB97A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +66,30 @@
 				EE3484032C3617FD007CB97A /* SceneDelegate.swift */,
 				EE3484052C3617FD007CB97A /* ViewController.swift */,
 				EE3484072C3617FD007CB97A /* Main.storyboard */,
+				EE34841B2C3620A7007CB97A /* Task List */,
+				EE34841C2C3620D3007CB97A /* Model */,
 				EE34840A2C3617FE007CB97A /* Assets.xcassets */,
 				EE34840C2C3617FE007CB97A /* LaunchScreen.storyboard */,
 				EE34840F2C3617FE007CB97A /* Info.plist */,
 			);
 			path = iOS102Unit1ScavengerHunt;
+			sourceTree = "<group>";
+		};
+		EE34841B2C3620A7007CB97A /* Task List */ = {
+			isa = PBXGroup;
+			children = (
+				EE3484172C361CD5007CB97A /* TaskCell.swift */,
+				EE3484152C361C5E007CB97A /* TaskListViewController.swift */,
+			);
+			path = "Task List";
+			sourceTree = "<group>";
+		};
+		EE34841C2C3620D3007CB97A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE3484192C361CFF007CB97A /* Task.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +164,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE3484062C3617FD007CB97A /* ViewController.swift in Sources */,
+				EE3484162C361C5E007CB97A /* TaskListViewController.swift in Sources */,
 				EE3484022C3617FD007CB97A /* AppDelegate.swift in Sources */,
 				EE3484042C3617FD007CB97A /* SceneDelegate.swift in Sources */,
+				EE34841A2C361CFF007CB97A /* Task.swift in Sources */,
+				EE3484182C361CD5007CB97A /* TaskCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
