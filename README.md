@@ -10,7 +10,7 @@ Time spent: 3 hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] App displays list of hard-coded tasks
+- [X] App displays list of hard-coded tasks
 - [ ] When a task is tapped it navigates the user to a task detail view
 - [ ] When user adds photo to complete the tasks, it marks the task as complete
 - [ ] When adding photo of task, the location is added
