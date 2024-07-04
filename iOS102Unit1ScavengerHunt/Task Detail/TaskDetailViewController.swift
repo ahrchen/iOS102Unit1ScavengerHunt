@@ -64,6 +64,7 @@ class TaskDetailViewController: UIViewController {
         attachPhotoButton.isHidden = task.isComplete
         takePhotoButton.isHidden = task.isComplete
     }
+    
     @IBAction func didTapTakePhotoButton(_ sender: Any) {
         locationButtonTapped()
         checkCameraPermission()
