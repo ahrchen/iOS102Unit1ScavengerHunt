@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import PhotosUI
+import CoreLocation
 
 class TaskDetailViewController: UIViewController {
     
@@ -21,13 +22,18 @@ class TaskDetailViewController: UIViewController {
     
     @IBOutlet weak var attachPhotoButton: UIButton!
     
+    @IBOutlet weak var takePhotoButton: UIButton!
+    
     @IBOutlet weak var mapView: MKMapView!
     
     var task: Task!
     
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupLocationManager()
+        locationButtonTapped()
         mapView.register(TaskAnnotationView.self, forAnnotationViewWithReuseIdentifier: TaskAnnotationView.identifier)
         mapView.delegate = self
         
@@ -56,8 +62,42 @@ class TaskDetailViewController: UIViewController {
 
         mapView.isHidden = !task.isComplete
         attachPhotoButton.isHidden = task.isComplete
+        takePhotoButton.isHidden = task.isComplete
     }
-
+    @IBAction func didTapTakePhotoButton(_ sender: Any) {
+        locationButtonTapped()
+        checkCameraPermission()
+    }
+    
+    private func checkCameraPermission() {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
+            presentCamera()
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { granted in
+                if granted {
+                    DispatchQueue.main.async {
+                        self.presentCamera()
+                    }
+                }
+            }
+        case .denied, .restricted:
+            // Alert the user that we need camera access
+            break
+        @unknown default:
+            break
+        }
+    }
+    
+    private func presentCamera() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+    }
+    
+    
+    
     @IBAction func didTapAttachPhotoButton(_ sender: Any) {
         if PHPhotoLibrary.authorizationStatus(for: .readWrite) != .authorized {
             PHPhotoLibrary.requestAuthorization(for: .readWrite) { [weak self] status in
@@ -196,5 +236,97 @@ extension TaskDetailViewController: MKMapViewDelegate {
         
         annotationView.configure(with: task.image)
         return annotationView
+    }
+}
+
+
+extension TaskDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        
+        guard let image = info[.originalImage] as? UIImage else { return }
+        guard let location = task.imageLocation else { return }
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.task.set(image, with:location)
+            
+            self?.updateUI()
+            
+            self?.updateMapView()
+        }
+        
+        picker.dismiss(animated: true)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    
+}
+
+extension TaskDetailViewController: CLLocationManagerDelegate {
+    func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    func requestLocationPermission() {
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            print("Location permission granted")
+            locationManager.requestLocation()
+        case .denied, .restricted:
+            print("Location permission denied")
+        case .notDetermined:
+            print("Location permission not determined")
+        @unknown default:
+            fatalError("Unknown location authorization status")
+        }
+    }
+    
+    func locationButtonTapped() {
+        switch locationManager.authorizationStatus {
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+            case .restricted, .denied:
+                showLocationAlert()
+            case .authorizedWhenInUse, .authorizedAlways:
+                locationManager.requestLocation()
+            @unknown default:
+                break
+            }
+    }
+    
+    func showLocationAlert() {
+        let alert = UIAlertController(title: "Location Access Required",
+                                      message: "Please enable location access in Settings to use this feature.",
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Settings", style: .default) { _ in
+            if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(settingsUrl)
+            }
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(alert, animated: true)
+    }
+
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            task.imageLocation = location
+            print("Current location: \(location.coordinate.latitude), \(location.coordinate.longitude)")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to get location: \(error.localizedDescription)")
     }
 }

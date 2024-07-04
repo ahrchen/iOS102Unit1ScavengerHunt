@@ -165,10 +165,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cTp-dE-cRu">
                                         <rect key="frame" x="0.0" y="100" width="345" height="100"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eR2-x8-bUR">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="100"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRS-zC-mK5">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="ina-PN-pL6"/>
+                                                    <constraint firstAttribute="height" constant="50" id="xlG-Qv-DEY"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Take Photo"/>
+                                                <connections>
+                                                    <action selector="didTapTakePhotoButton:" destination="sa4-Fx-ENB" eventType="touchUpInside" id="Vo5-NH-ZX4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eR2-x8-bUR">
+                                                <rect key="frame" x="0.0" y="50" width="345" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="hmf-ds-6Ms"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Attach Photo"/>
@@ -209,6 +220,7 @@
                         <outlet property="completedLabel" destination="z5a-le-UNV" id="LkI-6f-v7U"/>
                         <outlet property="descriptionLabel" destination="awN-vf-l1r" id="DPy-UG-hdF"/>
                         <outlet property="mapView" destination="kAW-iA-yRw" id="cdL-9n-7fa"/>
+                        <outlet property="takePhotoButton" destination="KRS-zC-mK5" id="bTl-0k-EKZ"/>
                         <outlet property="titleLabel" destination="FC3-qj-ftb" id="OBJ-A1-egA"/>
                     </connections>
                 </viewController>
@@ -223,7 +235,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
